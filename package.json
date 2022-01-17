@@ -1,0 +1,14 @@
+{
+    "name": "tehranjs-nodejs-haproxy",
+    "author": {
+        "name": "Ali Torki",
+        "email": "ali_4286@live.com",
+        "url": "https://linkedin.com/in/alitorki"
+    },
+    "dependencies": {
+        "express": "*"
+    },
+    "scripts": {
+        "start": "node index.js"
+    }
+}

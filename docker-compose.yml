@@ -1,0 +1,46 @@
+version: '3'
+services:
+  node1:
+    container_name: node1
+    hostname: node1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - PORT=3001
+    expose:
+      - 3001
+
+  node2:
+    container_name: node2
+    hostname: node2
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - PORT=3002
+    expose:
+      - 3002
+
+  node3:
+    container_name: node3
+    hostname: node3
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - PORT=3003
+    expose:
+      - 3003
+
+  haproxy:
+    depends_on:
+      - node1
+      - node2
+      - node3
+    build:
+      context: .
+      dockerfile: ./haproxy/Dockerfile
+    ports:
+      - "80:80"
+      - "81:81"
